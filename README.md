@@ -1,3 +1,5 @@
+[English](README.md) | [中文](README_zh.md) | [한국어](README_ko.md) | [日本語](README_ja.md)
+
 # MySQL MCP Server
 
 An MCP server that connects AI assistants (Cursor, Claude, etc.) to MySQL databases.
@@ -115,6 +117,12 @@ Ask your AI assistant:
 - Node.js >= 18
 - MySQL 5.7+ or MySQL 8.0+ (recommended)
 - MCP-compatible AI client (Cursor, Claude Desktop, etc.)
+
+## Roadmap
+
+- [ ] Multi-database switching (`USE db_name`)
+- [ ] Export table data to CSV
+- [ ] Slow query auto-analysis with optimization suggestions
 
 ## License
 

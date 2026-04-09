@@ -1,12 +1,12 @@
 [English](README.md) | [中文](README_zh.md) | [한국어](README_ko.md) | [日本語](README_ja.md)
 
-# MySQL MCP Server
+# 🐬 MySQL MCP Server
 
 An MCP server that connects AI assistants (Cursor, Claude, etc.) to MySQL databases.
 
-Talk to your database in natural language.
+Simple setup, ready to use, fast and secure. Talk to your database in natural language.
 
-## Features
+## 1. ✨ Features
 
 - **mysql_query** — Execute read-only SELECT queries (max 1000 rows)
 - **mysql_execute** — Execute INSERT / UPDATE / DELETE with transaction support
@@ -19,7 +19,7 @@ Talk to your database in natural language.
 - **mysql_database_info** — Show version, size, charset, connections, uptime
 - **mysql_show_processlist** — Show active connections and running queries
 
-## Security
+## 2. 🔒 Security
 
 - SQL injection pattern detection (DROP, TRUNCATE, OUTFILE, LOAD_FILE, etc.)
 - Query length limit (4096 chars)
@@ -30,11 +30,11 @@ Talk to your database in natural language.
 - Parameterized queries where applicable
 - MySQL 8.0+ `caching_sha2_password` natively supported
 
-## Quick Start
+## 3. 🚀 Quick Start
 
 ### Option 1: npx (recommended)
 
-#### Cursor
+#### <img src="assets/cursor-logo.png" width="20" height="20" /> Cursor
 
 Add to your `~/.cursor/mcp.json`:
 
@@ -60,7 +60,7 @@ Add to your `~/.cursor/mcp.json`:
 }
 ```
 
-#### Codex CLI
+#### 🤖 Codex CLI
 
 Add to your `~/.codex/config.toml`:
 
@@ -113,7 +113,7 @@ Then in `mcp.json`:
 }
 ```
 
-## Environment Variables
+## 4. ⚙️ Environment Variables
 
 | Variable | Default | Description |
 |----------|---------|-------------|
@@ -127,7 +127,7 @@ Then in `mcp.json`:
 | ALLOW_UPDATE_OPERATION | false | Enable UPDATE |
 | ALLOW_DELETE_OPERATION | false | Enable DELETE |
 
-## Usage Examples
+## 5. 💬 Usage Examples
 
 Ask your AI assistant:
 
@@ -143,18 +143,18 @@ Ask your AI assistant:
 "Are there any slow queries running?"
 ```
 
-## Requirements
+## 6. 📋 Requirements
 
 - Node.js >= 18
 - MySQL 5.7+ or MySQL 8.0+ (recommended)
 - MCP-compatible AI client (Cursor, Claude Desktop, etc.)
 
-## Roadmap
+## 7. 🗺️ Roadmap
 
 - [ ] Multi-database switching (`USE db_name`)
 - [ ] Export table data to CSV
 - [ ] Slow query auto-analysis with optimization suggestions
 
-## License
+## 8. 📄 License
 
 MIT

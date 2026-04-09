@@ -1,12 +1,12 @@
 [English](README.md) | [中文](README_zh.md) | [한국어](README_ko.md) | [日本語](README_ja.md)
 
-# MySQL MCP Server
+# 🐬 MySQL MCP Server
 
 一个将 AI 助手（Cursor、Claude 等）连接到 MySQL 数据库的 MCP 服务器。
 
-用自然语言与你的数据库对话。
+简单配置，开箱即用，高效安全。用自然语言与你的数据库对话。
 
-## 功能
+## 1. ✨ 功能
 
 - **mysql_query** — 执行只读 SELECT 查询（最多返回 1000 行）
 - **mysql_execute** — 执行 INSERT / UPDATE / DELETE，支持事务
@@ -19,7 +19,7 @@
 - **mysql_database_info** — 查看版本、大小、字符集、连接数、运行时间
 - **mysql_show_processlist** — 查看活跃连接和正在执行的查询
 
-## 安全性
+## 2. 🔒 安全性
 
 - SQL 注入模式检测（DROP、TRUNCATE、OUTFILE、LOAD_FILE 等）
 - 查询长度限制（4096 字符）
@@ -30,11 +30,11 @@
 - 支持参数化查询
 - 原生支持 MySQL 8.0+ `caching_sha2_password` 认证
 
-## 快速开始
+## 3. 🚀 快速开始
 
 ### 方式一：npx（推荐）
 
-#### Cursor
+#### <img src="assets/cursor-logo.png" width="20" height="20" /> Cursor
 
 在 `~/.cursor/mcp.json` 中添加：
 
@@ -60,7 +60,7 @@
 }
 ```
 
-#### Codex CLI
+#### 🤖 Codex CLI
 
 在 `~/.codex/config.toml` 中添加：
 
@@ -113,7 +113,7 @@ npm install
 }
 ```
 
-## 环境变量
+## 4. ⚙️ 环境变量
 
 | 变量 | 默认值 | 说明 |
 |------|--------|------|
@@ -127,7 +127,7 @@ npm install
 | ALLOW_UPDATE_OPERATION | false | 开启 UPDATE |
 | ALLOW_DELETE_OPERATION | false | 开启 DELETE |
 
-## 使用示例
+## 5. 💬 使用示例
 
 对你的 AI 助手说：
 
@@ -143,18 +143,18 @@ npm install
 "有没有慢查询在跑？"
 ```
 
-## 环境要求
+## 6. 📋 环境要求
 
 - Node.js >= 18
 - MySQL 5.7+ 或 MySQL 8.0+（推荐）
 - 支持 MCP 的 AI 客户端（Cursor、Claude Desktop 等）
 
-## 未来计划
+## 7. 🗺️ 未来计划
 
 - [ ] 支持多数据库切换（`USE db_name`）
 - [ ] 支持表数据导出为 CSV
 - [ ] 慢查询自动分析与优化建议
 
-## 许可证
+## 8. 📄 许可证
 
 MIT

@@ -47,7 +47,11 @@ Add to your `~/.cursor/mcp.json`:
         "MYSQL_PORT": "3306",
         "MYSQL_USER": "root",
         "MYSQL_PASS": "your_password",
-        "MYSQL_DB": "your_database"
+        "MYSQL_DB": "your_database",
+        "MAX_ROWS": "1000",
+        "ALLOW_INSERT_OPERATION": "false",
+        "ALLOW_UPDATE_OPERATION": "false",
+        "ALLOW_DELETE_OPERATION": "false"
       }
     }
   }
@@ -75,7 +79,11 @@ Then in `mcp.json`:
         "MYSQL_PORT": "3306",
         "MYSQL_USER": "root",
         "MYSQL_PASS": "your_password",
-        "MYSQL_DB": "your_database"
+        "MYSQL_DB": "your_database",
+        "MAX_ROWS": "1000",
+        "ALLOW_INSERT_OPERATION": "false",
+        "ALLOW_UPDATE_OPERATION": "false",
+        "ALLOW_DELETE_OPERATION": "false"
       }
     }
   }

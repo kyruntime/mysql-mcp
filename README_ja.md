@@ -47,7 +47,11 @@ AI アシスタント（Cursor、Claude など）を MySQL データベースに
         "MYSQL_PORT": "3306",
         "MYSQL_USER": "root",
         "MYSQL_PASS": "パスワード",
-        "MYSQL_DB": "データベース名"
+        "MYSQL_DB": "データベース名",
+        "MAX_ROWS": "1000",
+        "ALLOW_INSERT_OPERATION": "false",
+        "ALLOW_UPDATE_OPERATION": "false",
+        "ALLOW_DELETE_OPERATION": "false"
       }
     }
   }
@@ -75,7 +79,11 @@ npm install
         "MYSQL_PORT": "3306",
         "MYSQL_USER": "root",
         "MYSQL_PASS": "パスワード",
-        "MYSQL_DB": "データベース名"
+        "MYSQL_DB": "データベース名",
+        "MAX_ROWS": "1000",
+        "ALLOW_INSERT_OPERATION": "false",
+        "ALLOW_UPDATE_OPERATION": "false",
+        "ALLOW_DELETE_OPERATION": "false"
       }
     }
   }

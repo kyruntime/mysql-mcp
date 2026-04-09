@@ -34,6 +34,8 @@ AI アシスタント（Cursor、Claude など）を MySQL データベースに
 
 ### 方法 1: npx（推奨）
 
+#### Cursor
+
 `~/.cursor/mcp.json` に追加：
 
 ```json
@@ -56,6 +58,27 @@ AI アシスタント（Cursor、Claude など）を MySQL データベースに
     }
   }
 }
+```
+
+#### Codex CLI
+
+`~/.codex/config.toml` に追加：
+
+```toml
+[mcp_servers.mysql-mcp]
+command = "npx"
+args = ["-y", "@kyruntime/mysql-mcp"]
+
+[mcp_servers.mysql-mcp.env]
+MYSQL_HOST = "127.0.0.1"
+MYSQL_PORT = "3306"
+MYSQL_USER = "root"
+MYSQL_PASS = "パスワード"
+MYSQL_DB = "データベース名"
+MAX_ROWS = "1000"
+ALLOW_INSERT_OPERATION = "false"
+ALLOW_UPDATE_OPERATION = "false"
+ALLOW_DELETE_OPERATION = "false"
 ```
 
 ### 方法 2: クローンして実行

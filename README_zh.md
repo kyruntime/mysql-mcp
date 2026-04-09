@@ -34,6 +34,8 @@
 
 ### 方式一：npx（推荐）
 
+#### Cursor
+
 在 `~/.cursor/mcp.json` 中添加：
 
 ```json
@@ -56,6 +58,27 @@
     }
   }
 }
+```
+
+#### Codex CLI
+
+在 `~/.codex/config.toml` 中添加：
+
+```toml
+[mcp_servers.mysql-mcp]
+command = "npx"
+args = ["-y", "@kyruntime/mysql-mcp"]
+
+[mcp_servers.mysql-mcp.env]
+MYSQL_HOST = "127.0.0.1"
+MYSQL_PORT = "3306"
+MYSQL_USER = "root"
+MYSQL_PASS = "你的密码"
+MYSQL_DB = "你的数据库名"
+MAX_ROWS = "1000"
+ALLOW_INSERT_OPERATION = "false"
+ALLOW_UPDATE_OPERATION = "false"
+ALLOW_DELETE_OPERATION = "false"
 ```
 
 ### 方式二：克隆运行

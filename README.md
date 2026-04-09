@@ -34,6 +34,8 @@ Talk to your database in natural language.
 
 ### Option 1: npx (recommended)
 
+#### Cursor
+
 Add to your `~/.cursor/mcp.json`:
 
 ```json
@@ -56,6 +58,27 @@ Add to your `~/.cursor/mcp.json`:
     }
   }
 }
+```
+
+#### Codex CLI
+
+Add to your `~/.codex/config.toml`:
+
+```toml
+[mcp_servers.mysql-mcp]
+command = "npx"
+args = ["-y", "@kyruntime/mysql-mcp"]
+
+[mcp_servers.mysql-mcp.env]
+MYSQL_HOST = "127.0.0.1"
+MYSQL_PORT = "3306"
+MYSQL_USER = "root"
+MYSQL_PASS = "your_password"
+MYSQL_DB = "your_database"
+MAX_ROWS = "1000"
+ALLOW_INSERT_OPERATION = "false"
+ALLOW_UPDATE_OPERATION = "false"
+ALLOW_DELETE_OPERATION = "false"
 ```
 
 ### Option 2: Clone and run

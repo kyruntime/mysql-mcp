@@ -32,9 +32,9 @@ AI アシスタント（Cursor、Claude など）を MySQL データベースに
 
 ## 3. 🚀 クイックスタート
 
-### 方法 1: npx（推奨）
+### 3.1 npx（推奨）
 
-#### <img src="assets/cursor-logo.png" width="20" height="20" /> Cursor
+#### [🖥️ Cursor](https://cursor.com)
 
 `~/.cursor/mcp.json` に追加：
 
@@ -60,7 +60,7 @@ AI アシスタント（Cursor、Claude など）を MySQL データベースに
 }
 ```
 
-#### 🤖 Codex CLI
+#### [🤖 Codex CLI](https://developers.openai.com/codex/)
 
 `~/.codex/config.toml` に追加：
 
@@ -81,7 +81,7 @@ ALLOW_UPDATE_OPERATION = "false"
 ALLOW_DELETE_OPERATION = "false"
 ```
 
-### 方法 2: クローンして実行
+### 3.2 クローンして実行
 
 ```bash
 git clone https://github.com/kyruntime/mysql-mcp.git

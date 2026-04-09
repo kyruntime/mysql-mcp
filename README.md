@@ -32,9 +32,9 @@ Simple setup, ready to use, fast and secure. Talk to your database in natural la
 
 ## 3. 🚀 Quick Start
 
-### Option 1: npx (recommended)
+### 3.1 npx (recommended)
 
-#### <img src="assets/cursor-logo.png" width="20" height="20" /> Cursor
+#### [🖥️ Cursor](https://cursor.com)
 
 Add to your `~/.cursor/mcp.json`:
 
@@ -60,7 +60,7 @@ Add to your `~/.cursor/mcp.json`:
 }
 ```
 
-#### 🤖 Codex CLI
+#### [🤖 Codex CLI](https://developers.openai.com/codex/)
 
 Add to your `~/.codex/config.toml`:
 
@@ -81,7 +81,7 @@ ALLOW_UPDATE_OPERATION = "false"
 ALLOW_DELETE_OPERATION = "false"
 ```
 
-### Option 2: Clone and run
+### 3.2 Clone and run
 
 ```bash
 git clone https://github.com/kyruntime/mysql-mcp.git

@@ -32,9 +32,9 @@
 
 ## 3. 🚀 快速开始
 
-### 方式一：npx（推荐）
+### 3.1 npx（推荐）
 
-#### <img src="assets/cursor-logo.png" width="20" height="20" /> Cursor
+#### [🖥️ Cursor](https://cursor.com)
 
 在 `~/.cursor/mcp.json` 中添加：
 
@@ -60,7 +60,7 @@
 }
 ```
 
-#### 🤖 Codex CLI
+#### [🤖 Codex CLI](https://developers.openai.com/codex/)
 
 在 `~/.codex/config.toml` 中添加：
 
@@ -81,7 +81,7 @@ ALLOW_UPDATE_OPERATION = "false"
 ALLOW_DELETE_OPERATION = "false"
 ```
 
-### 方式二：克隆运行
+### 3.2 克隆运行
 
 ```bash
 git clone https://github.com/kyruntime/mysql-mcp.git

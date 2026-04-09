@@ -1,0 +1,33 @@
+{
+  "name": "@kyruntime/mysql-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for MySQL database access, enabling AI to query, inspect, and manage MySQL databases via natural language.",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "mysql-mcp": "index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "mcp",
+    "mysql",
+    "database",
+    "ai",
+    "llm",
+    "cursor",
+    "claude"
+  ],
+  "author": "kyruntime",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kyruntime/mysql-mcp.git"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "mysql2": "^3.21.0",
+    "zod": "^4.3.6"
+  }
+}

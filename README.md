@@ -18,6 +18,8 @@ Simple setup, ready to use, fast and secure. Talk to your database in natural la
 - **mysql_list_databases** — List all databases with sizes
 - **mysql_database_info** — Show version, size, charset, connections, uptime
 - **mysql_show_processlist** — Show active connections and running queries
+- **mysql_use_database** — Switch current database (`USE db_name`)
+- **mysql_export_csv** — Export table data or query results as CSV
 
 ## 2. 🔒 Security
 
@@ -151,8 +153,8 @@ Ask your AI assistant:
 
 ## 7. 🗺️ Roadmap
 
-- [ ] Multi-database switching (`USE db_name`)
-- [ ] Export table data to CSV
+- [x] Multi-database switching (`USE db_name`)
+- [x] Export table data to CSV
 - [ ] Slow query auto-analysis with optimization suggestions
 
 ## 8. 📄 License

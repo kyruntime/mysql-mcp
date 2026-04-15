@@ -18,6 +18,8 @@
 - **mysql_list_databases** — 列出所有数据库及大小
 - **mysql_database_info** — 查看版本、大小、字符集、连接数、运行时间
 - **mysql_show_processlist** — 查看活跃连接和正在执行的查询
+- **mysql_use_database** — 切换当前数据库（`USE db_name`）
+- **mysql_export_csv** — 导出表数据或查询结果为 CSV 格式
 
 ## 2. 🔒 安全性
 
@@ -151,8 +153,8 @@ npm install
 
 ## 7. 🗺️ 未来计划
 
-- [ ] 支持多数据库切换（`USE db_name`）
-- [ ] 支持表数据导出为 CSV
+- [x] 支持多数据库切换（`USE db_name`）
+- [x] 支持表数据导出为 CSV
 - [ ] 慢查询自动分析与优化建议
 
 ## 8. 📄 许可证

@@ -419,6 +419,115 @@ server.tool(
   }
 );
 
+// --------------------------------------------------
+// 工具 11：切换数据库
+// --------------------------------------------------
+server.tool(
+  "mysql_use_database",
+  "切换当前连接到指定数据库（等同于 USE db_name），后续所有查询将在新数据库上执行",
+  {
+    database: z.string().describe("要切换到的目标数据库名"),
+  },
+  async ({ database }) => {
+    if (!/^[a-zA-Z0-9_]+$/.test(database)) {
+      throw new Error("数据库名只允许字母、数字和下划线");
+    }
+
+    const conn = await pool.getConnection();
+    try {
+      await conn.query(`USE \`${database}\``);
+    } finally {
+      conn.release();
+    }
+
+    // 更新连接池配置，使后续新连接也使用该数据库
+    pool.pool.config.connectionConfig.database = database;
+
+    return {
+      content: [{
+        type: "text",
+        text: JSON.stringify({
+          success: true,
+          message: `已切换到数据库: ${database}`,
+          current_database: database,
+        }, null, 2),
+      }],
+    };
+  }
+);
+
+// --------------------------------------------------
+// 工具 12：导出表数据为 CSV
+// --------------------------------------------------
+server.tool(
+  "mysql_export_csv",
+  `导出指定表（或自定义 SELECT 查询）的数据为 CSV 格式文本（最多 ${MAX_ROWS} 行）。可直接复制保存为 .csv 文件。`,
+  {
+    table: z.string().optional().describe("要导出的表名（与 sql 二选一）"),
+    sql: z.string().optional().describe("自定义 SELECT 查询（与 table 二选一，优先使用）"),
+    columns: z.array(z.string()).optional().describe("指定要导出的列（仅在使用 table 参数时生效，默认导出全部列）"),
+    where: z.string().optional().describe("WHERE 条件（仅在使用 table 参数时生效）"),
+    limit: z.number().optional().describe(`导出行数上限，默认 ${MAX_ROWS}`),
+  },
+  async ({ table, sql: customSQL, columns, where, limit }) => {
+    let finalSQL;
+
+    if (customSQL) {
+      checkSQL(customSQL);
+      const sqlType = customSQL.trim().split(/\s+/)[0].toUpperCase();
+      if (sqlType !== "SELECT" && sqlType !== "WITH") {
+        throw new Error("导出 CSV 只允许 SELECT / WITH 查询");
+      }
+      finalSQL = customSQL.replace(/;+\s*$/, "");
+    } else if (table) {
+      const safeName = sanitizeTableName(table);
+      const cols = columns && columns.length > 0
+        ? columns.map(c => `\`${sanitizeTableName(c)}\``).join(", ")
+        : "*";
+      finalSQL = `SELECT ${cols} FROM \`${safeName}\``;
+      if (where) {
+        finalSQL += ` WHERE ${where}`;
+      }
+    } else {
+      throw new Error("必须提供 table 或 sql 参数之一");
+    }
+
+    const rowLimit = Math.min(limit || MAX_ROWS, MAX_ROWS);
+    finalSQL = `${finalSQL} LIMIT ${rowLimit}`;
+
+    checkSQL(finalSQL);
+    const [rows] = await pool.query(finalSQL);
+
+    if (!rows || rows.length === 0) {
+      return { content: [{ type: "text", text: "查询结果为空，无数据可导出" }] };
+    }
+
+    const headers = Object.keys(rows[0]);
+
+    const escapeCsvField = (val) => {
+      if (val === null || val === undefined) return "";
+      const str = String(val);
+      if (str.includes(",") || str.includes('"') || str.includes("\n") || str.includes("\r")) {
+        return `"${str.replace(/"/g, '""')}"`;
+      }
+      return str;
+    };
+
+    const csvLines = [headers.join(",")];
+    for (const row of rows) {
+      csvLines.push(headers.map(h => escapeCsvField(row[h])).join(","));
+    }
+    const csv = csvLines.join("\n");
+
+    return {
+      content: [{
+        type: "text",
+        text: `-- 共 ${rows.length} 行数据，${headers.length} 列 --\n\n${csv}`,
+      }],
+    };
+  }
+);
+
 // ============================================================
 // 启动
 // ============================================================
